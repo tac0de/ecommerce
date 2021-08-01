@@ -26,7 +26,7 @@
   <form action="/orderplace" method="POST">
     @csrf
     <div class="form-group">
-      <textarea name="address" placeholder="enter your address" cols="30" rows="10" class="form-control"></textarea>
+      <textarea name="address" placeholder="enter your address" class="form-control"></textarea>
     </div>
     <div class="form-group">
       <label for="payment">Payment Method</label>

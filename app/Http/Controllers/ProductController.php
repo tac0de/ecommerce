@@ -88,7 +88,7 @@ class ProductController extends Controller
             $order->save();
             Cart::where('user_id', $userId)->delete();
         }
-        $request->input();
+
         return redirect('/');
     }
 
