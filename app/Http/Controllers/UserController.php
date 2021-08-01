@@ -12,7 +12,7 @@ class UserController extends Controller
     {
         $user = User::where(['email' => $request->email])->first();
         if (!$user || !Hash::check($request->password, $user->password)) {
-            return "Username or passpord is incorrect";
+            return "Username or password is incorrect";
         } else {
             $request->session()->put('user', $user);
             return redirect('/');
@@ -24,7 +24,7 @@ class UserController extends Controller
         $user = new User;
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->password = Hash::make($request->name);
+        $user->password = Hash::make($request->password);
         $user->save();
         return redirect('/login');
     }
