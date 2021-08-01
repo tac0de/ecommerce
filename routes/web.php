@@ -16,8 +16,34 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', [ProductController::class, 'index']);
 
+Route::get('/detail/{id}', [ProductController::class, 'detail']);
+
+Route::get('/search', [ProductController::class, 'search']);
+
+Route::get('/cartlist', [ProductController::class, 'cartList']);
+
 Route::get('/login', function () {
     return view('pages.login');
 });
 
+Route::view('/register', 'pages.register');
+
+Route::get('/logout', function () {
+    Session::forget('user');
+    return redirect('login');
+});
+
+Route::get('/removecart/{id}', [ProductController::class, 'removeCart']);
+
+Route::get('/ordernow', [ProductController::class, 'orderNow']);
+
+Route::get('/myorders', [ProductController::class, 'myOrders']);
+
 Route::post('/login', [UserController::class, 'login']);
+
+Route::post('/register', [UserController::class, 'register']);
+
+Route::post('/add_to_cart', [ProductController::class, 'addToCart']);
+
+
+Route::post('/orderplace', [ProductController::class, 'orderPlace']);
